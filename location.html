@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickFix-Location</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>QuickFix</h1>
+        <p>Enter your location</p>
+    </header>
+
+    <section id="location-section">
+        <h2>Your Selected Service: <span id="serviceName"></span></h2>
+        <input type="text" id="userLocation" placeholder="Enter your location..." required>
+        <button onclick="saveLocation()">Proceed to Payment</button>
+    </section>
+
+    <script>
+        // Retrieve the selected service and display it
+        const selectedService = localStorage.getItem('selectedService');
+        document.getElementById('serviceName').textContent = selectedService;
+
+        // Save location info in local storage
+        function saveLocation() {
+            const location = document.getElementById('userLocation').value.trim();
+            if (location === '') {
+                alert('Please enter your location!');
+                return;
+            }
+            localStorage.setItem('userLocation', location);  // Store location
+            window.location.href = 'payment.html';  // Redirect to payment page
+        }
+    </script>
+</body>
+</html>

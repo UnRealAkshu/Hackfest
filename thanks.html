@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickFix-Thanks</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Thank You for Booking!</h1>
+    </header>
+
+    <section id="thank-you-section">
+        <h2>Your service has been successfully booked!</h2>
+        <p><strong>Service:</strong> <span id="thankYouService"></span></p>  <!-- Display selected service -->
+        <p><strong>Location:</strong> <span id="thankYouLocation"></span></p>  <!-- Display location -->
+        <p>Your provider will arrive at your location in 30 minutes.</p>
+    </section>
+
+    <script>
+        // Display the service and location on the thank you page
+        document.getElementById('thankYouService').textContent = localStorage.getItem('selectedService');
+        document.getElementById('thankYouLocation').textContent = localStorage.getItem('userLocation');
+    </script>
+</body>
+</html>
